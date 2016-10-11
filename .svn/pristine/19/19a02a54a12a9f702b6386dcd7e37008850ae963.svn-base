@@ -1,0 +1,212 @@
+/*
+ This is the compressed version of the css file, if you buy this template, it will be readable (not compressed like this one). Thanks! www.csstemplatesweb.com 
+*/
+
+
+
+
+img {
+	border: none
+}
+
+#middle a {
+	color: #423b35
+}
+
+#middle a:hover {
+	color: #fff;
+	text-decoration: none
+}
+
+#top p {
+	color: #ccc;
+	font-size: 12px
+}
+
+#top a {
+	outline: none
+}
+
+#top a:link {
+	color: #fff;
+	text-decoration: none
+}
+
+#top a:visited {
+	color: #fff;
+	text-decoration: none
+}
+
+#top a:hover {
+	color: #ecde00;
+	text-decoration: none
+}
+
+#top a:active {
+	color: #fff;
+	text-decoration: none
+}
+
+#bottom p {
+	color: #ccc
+}
+
+#bottom a {
+	outline: none
+}
+
+#bottom a:link {
+	color: #fff;
+	text-decoration: none
+}
+
+#bottom a:visited {
+	color: #fff;
+	text-decoration: none
+}
+
+#bottom a:hover {
+	color: #ecde00;
+	text-decoration: none
+}
+
+#bottom a:active {
+	color: #fff;
+	text-decoration: none
+}
+
+h1,h2 {
+	font-weight: normal;
+	margin: 10px 0;
+	padding: 10px 0
+}
+h6
+{
+		margin: 0;
+	padding: 0;
+}
+h1 {
+	font-size: 4em;
+	padding: 15px 5%;
+	margin: 0 auto;
+	background: #2b221b;
+	line-height: 1em;
+	color: #e3e1d5;
+	border-bottom: 1px solid #1b140e;
+	text-indent: -9000px;
+	background-image: url(images/header.jpg);
+	background-repeat: no-repeat
+}
+
+.container {
+	padding: 10px 5%
+}
+
+ul.column {
+	width: 100%;
+	padding: 0;
+	margin: 0px 0px;
+	list-style: none
+}
+
+ul.column li {
+	width: 200px;
+	padding: 0px;
+	margin: 0px 0px;
+	display: inline;
+}
+
+.block {
+	height: 170px;
+	width: 480px;
+	font-size: 1em;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 20px;
+	background: #e3e1d5;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.block h2 {
+	font-size: 1.8em;
+}
+
+.block #titleK {
+	font-size: 4.0em;
+	padding: 0.5%;
+}
+
+.block #bothclear
+{
+	clear: both;	
+}
+
+.floatleft
+{
+	float: left;	
+}
+.floatright
+{
+	float: right;	
+}
+
+#id_RE
+{
+	font-size: 2.0em;
+}
+#loc_RE
+{
+	font-size: 2.0em;
+}
+#context_RE
+{
+	margin-top: 5px;
+	width: 50%;
+		font-size: 1.2em;
+}
+
+.block img {
+	width: 15%;
+	padding: 0.5%;
+	margin: 0 0 10px 0;
+	background: #fff;
+	-ms-interpolation-mode: bicubic;
+	display: block;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	float: right;
+}
+
+/********************************************************reply*/
+
+.blockRE_ins {
+	height: 50px;
+	width: 450px;
+	font-size: 1em;
+	margin-right: 15px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	padding: 15px;
+	background: #ffffe5;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	float: left;
+}
+.blockRE {
+	height: 50px;
+	width: 470px;
+	font-size: 1em;
+	margin-right: 15px;
+	margin-left: 20px;
+	margin-bottom: 5px;
+	padding: 15px;
+	background: #b3b1a5;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	float:none;
+}

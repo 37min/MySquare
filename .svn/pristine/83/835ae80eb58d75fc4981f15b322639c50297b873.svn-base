@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mysquare.dao.LocationDao">
+	<select id="getLocations"  resultType="kr.co.mysquare.dto.Location" >
+		SELECT * FROM location
+	</select>
+	
+	<select id="getLocById" resultType="kr.co.mysquare.dto.Location">
+		SELECT * FROM LOCATION WHERE locname = #{locName}
+	</select>
+	
+	<select id="getReviewsByLocName" resultType="kr.co.mysquare.dto.Review">
+		SELECT * FROM REVIEW where locname = #{locName}
+	</select>
+	
+</mapper>
