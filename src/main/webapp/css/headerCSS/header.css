@@ -1,0 +1,207 @@
+#nav
+{
+	height: 80px;
+	z-index:100;
+	/* position:fixed; */
+	
+	
+	background: #87e0fd;
+	background: -moz-linear-gradient(top,  #87e0fd 0%, #53cbf1 33%, #38aff4 71%, #4bbbdd 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87e0fd), color-stop(33%,#53cbf1), color-stop(71%,#38aff4), color-stop(100%,#4bbbdd));
+	background: -webkit-linear-gradient(top,  #87e0fd 0%,#53cbf1 33%,#38aff4 71%,#4bbbdd 100%);
+	background: -o-linear-gradient(top,  #87e0fd 0%,#53cbf1 33%,#38aff4 71%,#4bbbdd 100%);
+	background: -ms-linear-gradient(top,  #87e0fd 0%,#53cbf1 33%,#38aff4 71%,#4bbbdd 100%);
+	background: linear-gradient(to bottom,  #87e0fd 0%,#53cbf1 33%,#38aff4 71%,#4bbbdd 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#4bbbdd',GradientType=0 );
+}
+
+#nav > #navLeft
+{
+	float : left;
+	width:20%;
+	/* margin-top : 10px; */
+}
+
+#nav > #navCenter
+{
+	float : left;
+	width : 55%;
+	margin-top : 5px;
+}
+
+#nav > #navCenter > form
+{
+	float : left;
+}
+
+#nav > #navRight
+{
+	float : left;
+	width : 25%;
+	margin-top : 13px;
+}
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&navLeft ��������� ������ &&&&&&&&&&&&&&&&&&&&&&&*/
+#nav > #navLeft > a
+{
+	 font-weight:bold;
+	 font-size : 25px;
+    float:left;
+    padding: 2px 4px;
+    color : black;
+    text-decoration: none;
+    /* border:1px solid #ccc; */
+    cursor: pointer;
+    /* background:transparent url(../images/overlay.png) repeat-x center left; */
+    height:50px;
+    line-height:50px;
+}
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&navLeft ��������� ��� &&&&&&&&&&&&&&&&&&&&&&&*/
+
+/* &&&&&&&&&&&&&&&&&&&&&&navCenter input������ ������ &&&&&&&&&&&&&&&&&&&&&&&*/
+#nav #navCenter a:hover{
+    background:#D9D9DA none;
+    color: #fff;
+}
+
+#nav #navCenter input[type="text"]{
+	margin: 15px 0 15px 0;
+	border-radius: 3px 0 0 3px;  
+	height: 28px;
+    float:left;
+    border:0;
+    width:250px;
+}
+
+ 
+ #nav #navCenter button {
+ 		margin: 15px 0 0 0;
+		overflow: visible;
+        position: relative;
+        float: right;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        height: 30px;
+        width: 80px;
+        font: 15px ������������, Malgun Gothic;
+        color: #fff;
+        text-transform: uppercase;
+        background: #d83c3c;
+        -moz-border-radius: 0 3px 3px 0;
+        -webkit-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0;      
+        text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+    }   
+      
+    #nav #navCenter button:hover{		
+        background: #e54040;
+    }	
+      
+    #nav #navCenter button:active,
+    #nav #navCenter button:focus{   
+        background: #c42f2f;    
+    }
+    
+    #nav #navCenter button:before {
+        content: '';
+        position: absolute;
+        border-width: 8px 8px 8px 0;
+        border-style: solid solid solid none;
+        border-color: transparent #d83c3c transparent;
+        top: 6px;
+        left: -6px;
+    }
+    
+    #nav #navCenter button:hover:before{
+        border-right-color: #e54040;
+    }
+    
+    #nav #navCenter button:focus:before{
+        border-right-color: #c42f2f;
+    }    
+    
+    #nav #navCenter button::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+    
+/* &&&&&&&&&&&&&&&&&&&&&&navCenter input ������ ���  &&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+/* &&&&&&&&&&&&&&&&&&& navRight ������ ������ &&&&&&&&&&&&&&&&& &&&&&&&&&&*/
+
+#nav > #navRight  > button
+{
+	/* Size and position */
+    width: 140px;
+    height: 38px;
+    position: relative;
+	
+    /* Styles */
+    box-shadow: inset 0 1px rgba(255,255,255,0.3);
+    border-radius: 3px;
+    cursor: pointer;
+	
+    /* Font styles */
+    line-height: 35px; /* Same as height */
+    text-align: center;
+    font-weight: bold;
+    
+	background: #fbd568; 
+    background: -moz-linear-gradient(#fbd568, #ffb347);
+    background: -ms-linear-gradient(#fbd568, #ffb347);
+    background: -o-linear-gradient(#fbd568, #ffb347);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fbd568), to(#ffb347));
+    background: -webkit-linear-gradient(#fbd568, #ffb347);
+    background: linear-gradient(#fbd568, #ffb347);
+    border: 1px solid #f4ab4c;
+    color: #996319;
+    text-shadow: 0 1px rgba(255,255,255,0.3);
+}
+
+#nav > #navRight > .blue
+{
+	/* Size and position */
+    width: 140px;
+    height: 37px;
+    float: left;
+    position: relative;
+	
+    /* Styles */
+    box-shadow: inset 0 1px rgba(255,255,255,0.3);
+    border-radius: 3px;
+    cursor: pointer;
+	
+    /* Font styles */
+    line-height: 37px; /* Same as height */
+    text-align: center;
+    font-weight: bold;
+    
+    background: #34a5cf;
+    background: -moz-linear-gradient(#34a5cf, #2a8ac4);
+    background: -ms-linear-gradient(#34a5cf, #2a8ac4);
+    background: -o-linear-gradient(#34a5cf, #2a8ac4);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#34a5cf), to(#2a8ac4));
+    background: -webkit-linear-gradient(#34a5cf, #2a8ac4);
+    background: linear-gradient(#34a5cf, #2a8ac4);
+    border: 1px solid #2b8bc7;
+    color: #ffffff;
+    text-shadow: 0 -1px rgba(0,0,0,0.3);
+    text-decoration: none;
+}
+
+
+#nav > #navRight > button:hover, 
+#nav > #navRight > .blue:hover 
+{
+    box-shadow: inset 0 1px rgba(255,255,255,0.3), inset 0 20px 40px rgba(255,255,255,0.15);
+}
+
+#nav > #navRight > button:active, 
+#nav > #navRight > .blue:active
+{
+    top: 1px;
+}
+
+/* &&&&&&&&&&&&&&&&&&& navRight ������ ���  &&&&&&&&&&&&&&&&& &&&&&&&&&&*/

@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="kr.co.mysquare.dto.Member"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="import/LoginForm/js/jquery.validate.js"></script>
+
+  <!-- form -->
+        <meta name="description" content="Custom Login Form Styling with CSS3" />
+        <meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="import/LoginForm/css/style.css" />
+		<script src="import/LoginForm/js/modernizr.custom.63321.js"></script>
+	<!--  -->
+
+<script type="text/javascript">
+(function($){
+
+    $(document).ready(function() {
+
+    $('#form-4').validate({
+            rules: {
+                id: { required: true, minlength: 3 , maxlength: 10 },
+                pwd: {required: true, equalTo: "#pwd2", maxlength: 10},
+                pwd2: {required: true },
+                email: {required: true,  email: true, maxlength: 25 },
+                sex: {required: true },
+                place: {required: true, maxlength: 50 },
+            },
+            messages: {
+                id: {required:"필수입력 사항 입니다.",
+                    minlength: jQuery.format("아이디는 {0}자 이상"),
+                    maxlength: jQuery.format("아이디는 {0}자 이하")
+                },
+                pwd: { required:"필수입력 사항 입니다.", equalTo:"암호를 다시 확인 하세요", maxlength: jQuery.format("아이디는 {0}자 이하") },
+                pwd2: { required:"필수입력 사항 입니다." },
+                email: { 
+                	required:"필수입력 사항 입니다.",
+                	email:"올바른 이메일주소를 입력하시오.",
+                	maxlength: jQuery.format("아이디는 {0}자 이하")
+                                },
+                                sex: { required:"필수입력 사항 입니다.", maxlength: jQuery.format("아이디는 {0}자 이하") },
+                                place: { required:"필수입력 사항 입니다.", maxlength: jQuery.format("아이디는 {0}자 이하") },
+            },
+            submitHandler: function (frm) {
+                frm.submit();
+            },
+            success: function (e) { 
+            //
+            }
+        });
+    });
+})(jQuery);
+</script> 
+<title>Insert title here</title>
+</head>
+<body>
+<img src = "image/header/menu0.png">
+<div class="container">
+<section class="main">
+				<form class="form-4" name="form-4" id="form-4" action="memberEdit.htm" method="post">
+				    <h2>회원 정보 수정</h2>
+				    <p>
+				        <label for="id">ID</label>
+				        <input type="text" name="id" readonly id="id" placeholder="ID" AUTOCOMPLETE=OFF value="${sessionScope.id}" required>
+				    </p>
+				    <p>
+				        <label for="password">Password</label>
+				        <input type="password" id="pwd" name='pwd' placeholder="Password" AUTOCOMPLETE=OFF required> 
+				    </p>
+				        <input id="pwd2" type="hidden" value="${member.pwd}"/>
+				    <p>
+				        <label for="name">name</label>
+				        <input type="text" id="name" name='name' placeholder="name" value="${member.name}" AUTOCOMPLETE=OFF required> 
+				    </p>
+				    <p>
+				        <label for="email">email</label>
+				        <input type="text" id="email" name='email' value="${member.email}" placeholder="email" AUTOCOMPLETE=OFF required> 
+				    </p>
+				    <p>
+				        <label for="sex">sex</label>
+				        <input type="text" id="sex" name='sex'  value="${member.sex}" placeholder="sex" AUTOCOMPLETE=OFF required>
+				      <!--      <br>Choose Your Sex :
+				 		<input type="radio" id="sex" name="sex" value="man">Man
+				 		<input type="radio" id="sex" name="sex" value="woman">Woman
+				 		<br>
+				 		<br>  --> 
+				    </p>
+				    <p>
+				        <label for="place">place</label>
+				        <input type="text" id="place" name='place' value="${member.place}" placeholder="place" AUTOCOMPLETE=OFF required> 
+				    </p>
+
+				    <p>
+				        <input type="submit" id="registerButton" name="submit" value="register">
+				    </p>       
+				</form>​
+</section>
+</div>
+             
+
+
+<!-- 
+       <form id="form-4" name="form-4" action="memberEdit.htm" method="post">
+       <input id="id" name="id" type="text" value="${sessionScope.id}" readonly />아이디 <br>
+       <input id="pwd" name="pwd" type="text" AUTOCOMPLETE=OFF />암호 <br>
+       <input id="pwd2" type="hidden" value="${member.pwd}"/>
+       <input id="name" name="name" type="text" value="${member.name}" AUTOCOMPLETE=OFF />이름 <br>
+       <input id="email" name="email" type="text" value="${member.email}" AUTOCOMPLETE=OFF />이메일 <br>
+       <input id="sex" name="sex" type="text" value="${member.sex}" AUTOCOMPLETE=OFF />성별 <br>
+       <input id="place" name="place" type="text" value="${member.place}" AUTOCOMPLETE=OFF />장소 <br>
+       <button id="registerButton" type="submit">Update</button>
+       </form>
+ -->
+</body>
+</html>

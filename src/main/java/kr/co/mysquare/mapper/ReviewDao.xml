@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mysquare.dao.ReviewDao">
+	
+	<insert id="insertReview">
+	INSERT INTO Review (revcode, locName, id, revGroupCode, revName, revImage, revContents, revdate)
+	VALUES(REVIEW_REVCODE_SEQ.NEXTVAL, #{locName}, #{id}, #{revGroupCode}, #{revName}, #{revImage}, #{revContents},  SYSDATE)
+	</insert>
+	
+	<select id="getReviewByRevCode" resultType="kr.co.mysquare.dto.Review">
+		SELECT revcode, locname, id, revgroupcode, revname, revimage, revcontents, revdate
+		FROM review WHERE revcode = #{revCode}
+	</select>
+	
+	<select id="getRevGroup" resultType="kr.co.mysquare.dto.RevGroup">
+		SELECT revgroupcode, revgroupname FROM REVGROUP
+	</select>
+	
+	<select id="getAllCommByRevCode" resultType="kr.co.mysquare.dto.Comm">
+		SELECT * FROM comm WHERE revcode = #{revCode} ORDER BY commdate asc
+	</select>
+	
+	<insert id="insertComm">
+		INSERT INTO COMM(commcode, revcode, commcontents, commdate, commid)
+		VALUES (COMM_COMMCODE_SEQ.NEXTVAL, #{revCode}, #{commContents}, SYSDATE, #{commId})
+	</insert>
+	
+	<delete id="deleteComm">
+		DELETE FROM comm WHERE commCode = #{commCode}
+	</delete>
+	
+	<delete id="deleteComm1">
+		DELETE FROM comm WHERE commid=#{id} <!-- and revCode = #{RevCode} -->
+	</delete>
+	
+	<delete id="deleteComm2">
+		DELETE FROM comm WHERE revCode = #{RevCode}
+	</delete>
+	
+	<select id="getLikeNum" resultType="int">
+		SELECT COUNT(id) FROM REVRECOMM WHERE revCode = #{revCode}
+	</select>
+	
+	<select id="getRevGroupName" resultType="kr.co.mysquare.dto.RevGroup">
+		SELECT revGroupName FROM REVGROUP WHERE revGroupCode = #{revGroupCode}
+	</select>
+	
+	<select id="getMostPopularReview" resultType="kr.co.mysquare.dto.Review">
+		SELECT revCode
+		FROM REVRECOMM
+		GROUP BY revCode
+		ORDER BY COUNT(id) desc
+	</select>
+	
+	<update id="reviewEdit">
+		UPDATE review 
+		SET locname = #{locName} , revgroupcode = #{revGroupCode}, 
+		revname = #{revName} , revimage = #{revImage}, revcontents = #{revContents}, revdate = SYSDATE
+		WHERE revcode = #{revCode}
+	</update>
+
+</mapper>

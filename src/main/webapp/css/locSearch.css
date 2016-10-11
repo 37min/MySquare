@@ -1,0 +1,79 @@
+
+.infoWindow
+{
+	background : #fff;
+	border : 3px solid;
+	border-radius : 10px 0 10px 10px;
+	border-color:#1F8AB6;
+	width:250px;
+	height:75px;
+	font-size : 13px;
+	font-family:맑은고딕, Malgun Gothic;
+}
+
+.infoWindow > .insert > a
+{
+	font-weight : bold;
+	text-decoration : none;
+	color : #1F8AB6;
+	margin : 30px 40px 5px 35px;
+}
+
+.infoWindow > .infoLeft
+{
+	width:30%;
+	float:left;
+}
+
+.infoWindow > .infoLeft > img
+{
+	margin : 10px 0 0 5px;
+	border : 0px solid;
+	border-radius : 1px 0 1px 1px;
+	border-color:#1F8AB6;
+	width:60px;
+	height:60px;
+}
+
+.infoWindow > .infoRight
+{
+	width:175px;
+	float:right;
+	
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	
+}
+
+.infoWindow > .infoRight > span
+{
+	width: 100px;
+	height : 50px;
+}
+
+.infoWindow > .infoRight > .title
+{
+	color : #1F8AB6;
+	font-weight : bold;
+	font-size : 15px;
+}
+
+.infoWindow > .infoRight > span > a
+{
+	font-weight : bold;
+	text-decoration : none;
+	color : #1F8AB6;
+}
+#route > img{
+	width:100%;
+	height: 47px;
+}
+#mapBox
+{
+	margin-left:37%;
+	width:70%;
+	height: 100%;
+	/* margin-left:10%;
+	margin-right:10%;  */
+}

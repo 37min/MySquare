@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mysquare.dao.LocationDao">
+	<select id="getLocations"  resultType="kr.co.mysquare.dto.Location" >
+		SELECT * FROM LOCATION ORDER BY locdate DESC
+	</select>
+	
+	<select id="getLocationsByInputLocName" resultType="kr.co.mysquare.dto.Location" >
+		SELECT * FROM LOCATION WHERE locadd LIKE '%${locName}%' ORDER BY locdate DESC
+	</select>
+	
+	<select id="getLocationsByLocGroupAndInputLocName" resultType="kr.co.mysquare.dto.Location" >
+		<!-- SELECT * FROM location WHERE locgroupcode = #{locGroupCode} AND locadd LIKE '%${locName}%' -->
+		SELECT * FROM location
+		<where>
+			<if test="locGroupCode != 0">
+				locgroupcode = #{locGroupCode}
+			</if>
+			AND locadd LIKE '%${locName}%'
+		</where>
+	</select>
+	
+	<select id="getLocById" resultType="kr.co.mysquare.dto.Location">
+		SELECT * FROM LOCATION WHERE locname = #{locName}
+	</select>
+	
+	<select id="getReviewsByLocName" resultType="kr.co.mysquare.dto.Review">
+		SELECT * FROM REVIEW where locname = #{locName} ORDER BY revdate DESC
+	</select>
+	
+	<select id="getLocGroup" resultType="kr.co.mysquare.dto.LocGroup">
+		SELECT * FROM LOCGROUP ORDER BY locgroupcode ASC
+	</select>
+	
+	<select id="getFavoriteNum" resultType="int">
+		SELECT COUNT(id) FROM bookmark WHERE locName = #{locName}
+	</select>
+	
+	<select id="getLocGroupName" resultType="kr.co.mysquare.dto.LocGroup">
+		SELECT locgroupname FROM LOCGROUP WHERE locGroupCode = #{locGroupCode}
+	</select>
+	
+	<select id="getMostPopularLocation" resultType="kr.co.mysquare.dto.Location">
+		SELECT locname
+		FROM BOOKMARK
+		GROUP BY locname
+		ORDER BY COUNT(locname) DESC
+	</select>
+	
+	
+</mapper>

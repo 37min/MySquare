@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mysquare.dao.AdminDao">
+	<select id="getHLDistrict" resultType="kr.co.mysquare.dto.HLDistrict">
+		SELECT * from HLDistrict ORDER BY HLLocCode ASC
+	</select>
+
+	<select id="getMLDistrict" resultType="kr.co.mysquare.dto.MLDistrict">
+		SELECT * from MLDistrict where HLLocCode =#{param1} ORDER BY
+		MLLocCode ASC
+	</select>
+
+	<select id="getLLDistrict" resultType="kr.co.mysquare.dto.LLDistrict">
+		SELECT * from LLDistrict where MLLocCode =#{param1} ORDER BY
+		LLLocCode ASC
+	</select>
+
+	<select id="getLocations" resultType="kr.co.mysquare.dto.Location">
+		SELECT *
+		FROM Location WHERE LLLocCode =#{param1} ORDER BY LLLocCode ASC
+	</select>
+
+	<select id="getLocation" resultType="kr.co.mysquare.dto.Location">
+		SELECT LocName,
+		LocGroupCode, LLLocCode, LocImage, LocContents, LocAdd, latitude,
+		longitude, LocDate
+		FROM Location WHERE LocName =#{param1}
+	</select>
+	
+	<select id="getLocGroup" resultType="kr.co.mysquare.dto.LocGroup">
+		SELECT g.LOCGROUPNAME FROM LOCGROUP g inner JOIN LOCATION l ON l.LocGroupCode = g.LocGroupCode WHERE LocName = #{param1}
+	</select>
+
+	<update id="getLocationUpdate">
+		UPDATE Location SET locGroupCode=#{locGroupCode}, 
+		LLLocCode=#{LLLocCode}, locImage=#{locImage},
+		locContents =#{locContents}, locAdd=#{locAdd}, latitude=#{latitude},
+		longitude=#{longitude} where locName=#{locName}
+	</update>
+
+	<delete id="getLocationDelete">
+		DELETE Location WHERE LocName=#{locName}
+	</delete>
+	
+	<select id="Review" resultType="kr.co.mysquare.dto.Review">
+	    SElECT locName, revName, revCode from Review  where locName = #{param1}
+	</select>
+	
+	<delete id="delete1bookmark">
+	    DELETE FROM bookmark WHERE locName = #{locName}
+	</delete>
+	
+	<delete id="delete3REVRECOMM">
+	    DELETE FROM REVRECOMM WHERE revCode=#{revCode} 
+	</delete>
+	
+	<select	id="getLLLocCode" resultType="kr.co.mysquare.dto.LLDistrict">
+		SELECT LLLocCode FROM LLDistrict WHERE LLLocCode = #{param1}
+	</select>
+
+	<insert id ="getLocationInsert">
+		INSERT INTO Location (LocName, LocGroupCode, LLLocCode, LocImage, LocContents, LocAdd, latitude, longitude, LocDate)
+		VALUES (#{locName}, #{locGroupCode}, #{LLLocCode}, #{locImage}, #{locContents}, #{locAdd}, #{latitude}, #{longitude}, SYSDATE)
+	</insert>
+	
+	<select	id="getMemberById" resultType="kr.co.mysquare.dto.Member">
+	  <!-- select *  FROM MEMBER WHERE ID LIKE '%${id}%' -->
+	  select   id, pwd,NAME,email ,sex , place, TO_CHAR(joindate,'yyyy-mm-dd hh:mm:ss') gDate FROM MEMBER WHERE ID LIKE '${id}%'
+	</select>
+	
+</mapper>

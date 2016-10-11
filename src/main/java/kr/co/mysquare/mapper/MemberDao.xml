@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mysquare.dao.MemberDao">
+	<!-- <insert id="test"> INSERT INTO TEST1(num) VALUES( 50) </insert> -->
+	<select id="select" resultType="kr.co.mysquare.dto.Member">
+		select id, pwd, name, email, sex, place, joindate from MEMBER where id = #{id}
+	</select>
+	<insert id="insert">
+		INSERT INTO MEMBER (id, pwd, name, email, sex, place, joindate) VALUES (#{id} ,#{pwd},
+		#{name}, #{email}, #{sex}, #{place}, sysdate)
+	</insert>
+	<update id="update">
+		UPDATE MEMBER SET name=#{name}, email=#{email}, sex=#{sex}, place=#{place}
+		where id=#{id}
+	</update>
+	<delete id="delete1bookmark">
+	    DELETE FROM bookmark WHERE id = #{id}
+	</delete>
+    <delete id="delete2FOLLOWING">
+	    DELETE FROM FOLLOWING WHERE followerid = #{id} or followingid = #{id}
+	</delete>
+	<delete id="delete3REVRECOMM">
+	    DELETE FROM REVRECOMM WHERE id = #{id} 
+	</delete>
+	<delete id="delete4Review">
+		DELETE Review WHERE revCode=#{revCode}
+	</delete>
+	<delete id="delete5MEMBER">
+		DELETE MEMBER WHERE ID=#{id}
+	</delete>
+	
+	<!-- <delete id="delete">
+	    DELETE FROM bookmark WHERE id = #{id}
+	    DELETE FROM FOLLOWING WHERE followerid = #{id} 
+	    DELETE FROM REVRECOMM WHERE id = #{id} 
+		DELETE MEMBER WHERE ID=#{id}
+	</delete> -->
+	<insert id="addBookmark">
+		INSERT INTO BOOKMARK(bmcode, locName, id)
+		VALUES (BOOKMARK_BMCODE_SEQ.NEXTVAL, #{param1}, #{param2})
+	</insert>
+	
+	<delete id="deleteBookmark">
+		DELETE FROM bookmark WHERE locName = #{param1} AND id = #{param2}
+	</delete>
+	
+	<select id="getMyBookmark" resultType="kr.co.mysquare.dto.Bookmark">
+		SELECT locName FROM BOOKMARK WHERE id = #{id}
+	</select>
+	
+	<select id="isMyBookmark" resultType="int">
+		SELECT COUNT(id) FROM BOOKMARK WHERE locName = #{param1} AND id = #{param2}
+	</select>
+	
+	<insert id="likeReview">
+		INSERT INTO REVRECOMM(id, revcode) VALUES (#{param1}, #{param2})
+	</insert>
+	
+	<select id="isLikedReivew" resultType="int">
+		SELECT COUNT(id) FROM REVRECOMM WHERE id = #{param1} AND revcode = #{param2}
+	</select>
+
+	<delete id="canclelikeReview">
+		DELETE FROM REVRECOMM WHERE id = #{param1} AND revcode = #{param2}
+	</delete>
+	
+	<select id="following" resultType="kr.co.mysquare.dto.Following">
+	    SElECT followingId from following where followerId = #{id}
+	    
+	</select>
+     
+     <select id="Review" resultType="kr.co.mysquare.dto.Review">
+	    SElECT locName, revName, revCode from Review  where Id = #{id}
+	</select>
+	
+	<insert id="addFollowing">
+		INSERT INTO FOLLOWING(followcode, followerid, followingid) 
+		VALUES(FOLLOWING_FOLLOWCODE_SEQ.NEXTVAL, #{param1}, #{param2})
+	</insert>
+	
+	<select id="isFollowedId" resultType="int">
+		SELECT COUNT(followingid) FROM following WHERE followerid = #{param1} AND followingid = #{param2} 
+	</select>
+	
+	<delete id="unFollowing">
+		DELETE FROM FOLLOWING WHERE followerid = #{param1} AND followingid = #{param2}
+	</delete>
+	
+	<delete id="RevGroup">
+		DELETE FROM FOLLOWING WHERE followerid = #{param1} AND followingid = #{param2}
+	</delete>
+	
+</mapper>
